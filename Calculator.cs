@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +14,7 @@ namespace CalculatorProject
 
         /*Created By BAHER <3_H.E edrisebaher@gmail.com || MU 2019_ BCS CSHARP*/
         string operatorSign = "";
+        string keepValue = "";
 
         public Form1()
         {
@@ -159,59 +160,117 @@ namespace CalculatorProject
 
         private void button9_Click(object sender, EventArgs e)
         {
-           
-         
-
+                //add
                 if (operatorSign == "+")
                 {
-                    label3.Visible = true;
-                    label3.Text = textBox1.Text;
-                    double addition = Convert.ToDouble(label1.Text) + Convert.ToDouble(textBox1.Text);
-                    textBox1.Text = addition.ToString();
-                    //textBox1.Text = label1.Text + "+" + label3.Text + "="+ addition.ToString;
 
-                }
-                else if (operatorSign == "-")
-                {
-                    label3.Visible = true;
-                    label3.Text = textBox1.Text;
-                    double subtraction = Convert.ToDouble(label1.Text) - Convert.ToDouble(textBox1.Text);
-                    textBox1.Text = subtraction.ToString();
-
-                }
-                else if (operatorSign == "*")
-                {
-                    label3.Visible = true;
-                    label3.Text = textBox1.Text;
-                    double multiplication = Convert.ToDouble(label1.Text) * Convert.ToDouble(textBox1.Text);
-                    textBox1.Text = multiplication.ToString();
-                }
-                else
-                {
-
-                    if (textBox1.Text == "")
+                    if (textBox1.Text =="" && label2.Text == operatorSign)
                     {
-                        textBox1.Text = null;
+
+                        textBox1.Text = label1.Text;
+
                     }
-                    else
+                    else if(operatorSign=="+")
+                    {
+                        label3.Visible = true;
+                        label3.Text = textBox1.Text;
+                        double addition = Convert.ToDouble(label1.Text) + Convert.ToDouble(textBox1.Text);
+                        textBox1.Text = addition.ToString();
+                        //textBox1.Text = label1.Text + "+" + label3.Text + "="+ addition.ToString;
+                    }
+                }
+
+            //minus
+                if (operatorSign == "-")
+                {
+
+                    if (textBox1.Text == "" && label2.Text == operatorSign)
                     {
 
+                        textBox1.Text = label1.Text;
+
+                    }
+                    else if (operatorSign == "-")
+                    {
+                        label3.Visible = true;
+                        label3.Text = textBox1.Text;
+                        double subtraction = Convert.ToDouble(label1.Text) - Convert.ToDouble(textBox1.Text);
+                        textBox1.Text = subtraction.ToString();
+                        //textBox1.Text = label1.Text + "+" + label3.Text + "="+ addition.ToString;
+                    }
+                }
+            //multiply
+                if (operatorSign == "*")
+                {
+
+                    if (textBox1.Text == "" && label2.Text == operatorSign)
+                    {
+
+                        textBox1.Text = label1.Text;
+
+                    }
+                    else if (operatorSign == "*")
+                    {
+                        label3.Visible = true;
+                        label3.Text = textBox1.Text;
+                        double multiplication = Convert.ToDouble(label1.Text) * Convert.ToDouble(textBox1.Text);
+                        textBox1.Text = multiplication.ToString();
+                        //textBox1.Text = label1.Text + "+" + label3.Text + "="+ addition.ToString;
+                    }
+                }
+
+            //divid
+                if (operatorSign == "/")
+                {
+
+                    if (textBox1.Text == "" && label2.Text == operatorSign)
+                    {
+
+                        textBox1.Text = label1.Text;
+
+                    }
+                    else if (operatorSign == "/")
+                    {
                         label3.Visible = true;
                         label3.Text = textBox1.Text;
                         double division = Convert.ToDouble(label1.Text) / Convert.ToDouble(textBox1.Text);
                         textBox1.Text = division.ToString();
+                        //textBox1.Text = label1.Text + "+" + label3.Text + "="+ addition.ToString;
                     }
+
                 }
+
+                 if (operatorSign == "")
+                {
+                    string keepNullVal = textBox1.Text;
+                    
+                    //label1.Text = textBox1.Text;
+                }
+
+                 if (textBox1.Text == "") {
+
+                     textBox1.Text = textBox1.Text;
+                 }
+     
+            
+            
+            
+            //else if (label1.Text == textBox1.Text && operatorSign=="+" ||
+                //    operatorSign=="-" || operatorSign=="*" || operatorSign=="/") {
+
+                //    textBox1.Text = "";
+                
+                //}
             }
           
         
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "";
-            label1.Text = "";
-            label2.Text = "";
-            label3.Text = "";
+            textBox1.Text = null;
+            label1.Text = null;
+            label2.Text = null;
+            label3.Text = null;
         }
 
         private void button18_Click(object sender, EventArgs e)
@@ -224,7 +283,7 @@ namespace CalculatorProject
             }
             else
             {
-                textBox1.Text = textBox1.Text + ".";
+                textBox1.Text = textBox1.Text +".";
             }
         }
 
